@@ -4,7 +4,7 @@ backupdir="/backup/"
 toplam=$(ls -lt $backupdir | awk {'print $9'} | wc -l)
 zaman=$(date)
 log="/var/log/silinen.log"
-if [ $toplam > 1000 ];then
+if [ $toplam -gt 1000 ];then
 	sondan=$(( $toplam - 3 ))
 	silinecek=$(( $toplam - 1000 ))
 	goster=$(ls -lt $backupdir | awk {'print $9'} | tail -$sondan | tail -$silinecek)
